@@ -63,6 +63,15 @@ exports.xmlpoke = {
 
         test.done();
     },
+    multiple_xpath_queries: function (test) {
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/multiple_xpath_queries.xml'),
+            expected = grunt.file.read('test/expected/multiple_xpath_queries.xml');
+        test.equal(actual, expected, 'should update both text and attribute values to "111".');
+
+        test.done();
+    },
     multiple_replacements: function (test) {
         test.expect(1);
 

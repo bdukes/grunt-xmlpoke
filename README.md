@@ -92,6 +92,23 @@ grunt.initConfig({
 })
 ```
 
+#### Multiple XPath Queries
+In this example, the same value is put intp multiple locations. So if the `testing.xml` file has the content `<x y="999" />`, the generated result in this case would be `<x y="111">111</x>`.
+
+```js
+grunt.initConfig({
+  xmlpoke: {
+    options: {
+      xpath: ['/x/@y','/x'],
+      value: '111'
+    },
+    files: {
+      'dest/multiple_xpath_queries.xml': 'src/testing.xml',
+    },
+  },
+})
+```
+
 #### Multiple Replacements
 In this example, multiple replacements take place at once. So if the `testing.xml` file has the content `<x y="999" />`, the generated result in this case would be `<x y="111">M</x>`.
 
