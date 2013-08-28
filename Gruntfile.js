@@ -66,6 +66,14 @@ module.exports = function (grunt) {
                     'tmp/numbers_no_match.xml': 'test/fixtures/numbers.xml'
                 }
             },
+            default_value_is_empty: {
+                options: {
+                    xpath: '/x/@y'
+                },
+                files: {
+                    'tmp/default_value_is_empty.xml': 'test/fixtures/simple.xml'
+                }
+            },
             multiple_xpath_queries: {
                 options: {
                     xpath: ['/x/@y','/x'],

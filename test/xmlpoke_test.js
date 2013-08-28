@@ -63,6 +63,15 @@ exports.xmlpoke = {
 
         test.done();
     },
+    default_value_is_empty: function (test) {
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/default_value_is_empty.xml'),
+            expected = grunt.file.read('test/expected/default_value_is_empty.xml');
+        test.equal(actual, expected, 'should have empty attribute.');
+
+        test.done();
+    },
     multiple_xpath_queries: function (test) {
         test.expect(1);
 

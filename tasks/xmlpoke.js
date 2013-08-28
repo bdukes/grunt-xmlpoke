@@ -43,15 +43,16 @@ module.exports = function (grunt) {
                 replacements = options.replacements || [options];
             
             replacements.forEach(function (replacement) {
-                var queries = typeof replacement.xpath === 'string' ? [replacement.xpath] : replacement.xpath;
+                var queries = typeof replacement.xpath === 'string' ? [replacement.xpath] : replacement.xpath,
+                    value = replacement.value || '';
                 queries.forEach(function (query) {
                     grunt.verbose.writeln('setting value of "' + query + '" to "' + replacement.value + '"');
                     var nodes = xpath.select(query, doc);
                     nodes.forEach(function (node) {
                         if (node.nodeType === ATTRIBUTE_NODE) {
-                            node.value = replacement.value;
+                            node.value = value;
                         } else {
-                            node.textContent = replacement.value;
+                            node.textContent = value;
                         }
                     });
                 });
