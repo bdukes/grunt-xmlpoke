@@ -62,7 +62,7 @@ module.exports = function (grunt) {
             grunt.file.write(f.dest, xmlSerializer.serializeToString(doc));
 
             // Print a success message.
-            grunt.log.writeln('File "' + f.dest + '" created.');
+            grunt.log.writeln('File ' + f.dest.cyan + ' created.');
         });
     });
 };
