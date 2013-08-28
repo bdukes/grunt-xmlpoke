@@ -16,10 +16,7 @@ module.exports = function (grunt) {
 
     grunt.registerMultiTask('xmlpoke', 'Updates values in XML files based on XPath queries', function () {
         // Merge task-specific and/or target-specific options with these defaults.
-        var options = this.options({
-            xpath: '',
-            value: ''
-        });
+        var options = this.options();
 
         // Iterate over all specified file groups.
         this.files.forEach(function (f) {
@@ -43,16 +40,20 @@ module.exports = function (grunt) {
                 domParser = new xmldom.DOMParser(),
                 doc = domParser.parseFromString(src),
                 xmlSerializer = new xmldom.XMLSerializer(),
-                queries = typeof options.xpath === 'string' ? [options.xpath] : options.xpath;
-
-            queries.forEach(function (query) {
-                var nodes = xpath.select(query, doc);
-                nodes.forEach(function (node) {
-                    if (node.nodeType === ATTRIBUTE_NODE) {
-                        node.value = options.value;
-                    } else {
-                        node.textContent = options.value;
-                    }
+                replacements = options.replacements || [options];
+            
+            replacements.forEach(function (replacement) {
+                var queries = typeof replacement.xpath === 'string' ? [replacement.xpath] : replacement.xpath;
+                queries.forEach(function (query) {
+                    grunt.verbose.writeln('setting value of "' + query + '" to "' + replacement.value + '"');
+                    var nodes = xpath.select(query, doc);
+                    nodes.forEach(function (node) {
+                        if (node.nodeType === ATTRIBUTE_NODE) {
+                            node.value = replacement.value;
+                        } else {
+                            node.textContent = replacement.value;
+                        }
+                    });
                 });
             });
 
@@ -63,5 +64,4 @@ module.exports = function (grunt) {
             grunt.log.writeln('File "' + f.dest + '" created.');
         });
     });
-
 };

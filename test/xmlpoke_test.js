@@ -62,5 +62,14 @@ exports.xmlpoke = {
         test.equal(actual, expected, 'should not change anything.');
 
         test.done();
+    },
+    multiple_replacements: function (test) {
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/multiple_replacements.xml'),
+            expected = grunt.file.read('test/expected/multiple_replacements.xml');
+        test.equal(actual, expected, 'should update text and attribute values.');
+
+        test.done();
     }
 };

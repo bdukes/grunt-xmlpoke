@@ -65,6 +65,20 @@ module.exports = function (grunt) {
                 files: {
                     'tmp/numbers_no_match.xml': 'test/fixtures/numbers.xml'
                 }
+            },
+            multiple_replacements: {
+                options: {
+                    replacements: [{
+                        xpath: '/x/@y',
+                        value: '111'
+                    }, {
+                        xpath: '/x',
+                        value: 'M'
+                    }]
+                },
+                files: {
+                    'tmp/multiple_replacements.xml': 'test/fixtures/simple.xml'
+                }
             }
         },
 

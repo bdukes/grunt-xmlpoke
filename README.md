@@ -50,6 +50,12 @@ Default value: `''`
 
 A string value to which the value of any matched node is set.
 
+#### options.replacements
+Type: `Array`
+Default value: `undefined`
+
+An array of replacement options (i.e. objects with `xpath` and `value` properties)
+
 ### Usage Examples
 
 #### Basic Usage
@@ -81,6 +87,28 @@ grunt.initConfig({
     },
     files: {
       'dest/attribute_example.xml': 'src/testing.xml',
+    },
+  },
+})
+```
+
+#### Multiple Replacements
+In this example, multiple replacements take place at once. So if the `testing.xml` file has the content `<x y="999" />`, the generated result in this case would be `<x y="111">M</x>`.
+
+```js
+grunt.initConfig({
+  xmlpoke: {
+    options: {
+      replacements: [{
+        xpath: '/x/@y',
+        value: '111'
+      }, {
+        xpath: '/x',
+        value: 'M'
+      }]
+    },
+    files: {
+      'dest/multiple_replacements.xml': 'src/testing.xml',
     },
   },
 })
