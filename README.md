@@ -45,10 +45,12 @@ Default value: `''`
 An xpath query to select one or more nodes in the source document.
 
 #### options.value
-Type: `String`
+Type: `String` or `Function`
 Default value: `''`
 
 A string value to which the value of any matched node is set.
+
+You can also supply a function that returns the replacement value.
 
 #### options.replacements
 Type: `Array`
