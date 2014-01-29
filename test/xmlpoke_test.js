@@ -89,5 +89,14 @@ exports.xmlpoke = {
         test.equal(actual, expected, 'should update text and attribute values.');
 
         test.done();
+    },
+    value_as_function : function(test){
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/value_as_function.xml'),
+            expected = grunt.file.read('test/expected/value_as_function.xml');
+        test.equal(actual, expected, 'should use a function return value.');
+
+        test.done();
     }
 };

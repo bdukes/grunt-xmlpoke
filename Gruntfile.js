@@ -96,6 +96,17 @@ module.exports = function (grunt) {
                 files: {
                     'tmp/multiple_replacements.xml': 'test/fixtures/simple.xml'
                 }
+            },
+            value_as_function: {
+                options: {
+                    xpath: '/x/@y',
+                    value: function(){
+                        return 'value from a function';
+                    }
+                },
+                files: {
+                    'tmp/value_as_function.xml': 'test/fixtures/simple.xml'
+                }
             }
         },
 
