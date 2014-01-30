@@ -98,5 +98,14 @@ exports.xmlpoke = {
         test.equal(actual, expected, 'should use a function return value.');
 
         test.done();
+    },
+    value_as_function_with_callback : function(test){
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/value_as_function_with_callback.xml'),
+            expected = grunt.file.read('test/expected/value_as_function_with_callback.xml');
+        test.equal(actual, expected, 'should use a function return value.');
+
+        test.done();
     }
 };

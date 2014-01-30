@@ -107,6 +107,17 @@ module.exports = function (grunt) {
                 files: {
                     'tmp/value_as_function.xml': 'test/fixtures/simple.xml'
                 }
+            },
+            value_as_function_with_callback: {
+                options: {
+                    xpath: '/data/@test-value',
+                    value: function(node){
+                        return node.value.toUpperCase();
+                    }
+                },
+                files: {
+                    'tmp/value_as_function_with_callback.xml': 'test/fixtures/testing.xml'
+                }
             }
         },
 
