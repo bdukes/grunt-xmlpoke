@@ -3,7 +3,7 @@
 > Updates values in XML files based on XPath queries.  Similar to the `xmlpoke` task in NAnt.
 
 ## Getting Started
-This plugin requires Grunt `~0.4.1`
+This plugin requires Grunt `~0.4.2`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -50,7 +50,9 @@ Default value: `''`
 
 A string value to which the value of any matched node is set.
 
-You can also supply a function that returns the replacement value.
+You can also supply a function that returns the replacement value.  The first
+argument supplied to the function will be the node on which the replacement is 
+being made.
 
 #### options.replacements
 Type: `Array`
@@ -89,6 +91,23 @@ grunt.initConfig({
     },
     files: {
       'dest/attribute_example.xml': 'src/testing.xml',
+    },
+  },
+})
+```
+
+#### Function Example
+In this example, the value of an attribute is modified. So if the `testing.xml` file has the content `<x y="abc" />`, the generated result in this case would be `<x y="ABC" />`.
+
+```js
+grunt.initConfig({
+  xmlpoke: {
+    options: {
+      xpath: '/x/@y',
+      value: function (node) { return node.value.toUpperCase(); }
+    },
+    files: {
+      'dest/function_example.xml': 'src/testing.xml',
     },
   },
 })
@@ -140,3 +159,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
  - 0.1.0 &mdash; Initial release
  - 0.2.0 &mdash; Multiple replacements at once
  - 0.2.1 &mdash; Color filename when logged
+ - 0.3.0 &mdash; Allow specifying replacement value as a function
