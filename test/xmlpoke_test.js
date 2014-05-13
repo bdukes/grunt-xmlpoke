@@ -107,5 +107,14 @@ exports.xmlpoke = {
         test.equal(actual, expected, 'should use a function return value.');
 
         test.done();
+    },
+    namespaces : function(test){
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/namespaces.xml'),
+            expected = grunt.file.read('test/expected/namespaces.xml');
+        test.equal(actual, expected, 'should support namespace in xpath.');
+
+        test.done();
     }
 };
