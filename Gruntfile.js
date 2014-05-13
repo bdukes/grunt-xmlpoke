@@ -118,6 +118,17 @@ module.exports = function (grunt) {
                 files: {
                     'tmp/value_as_function_with_callback.xml': 'test/fixtures/testing.xml'
                 }
+            },
+            namespaces: {
+                dest: 'tmp/namespaces.xml',
+                src: 'test/fixtures/namespaces.xml',
+                options: {
+                    namespaces: {
+                        'em': 'http://www.mozilla.org/2004/em-rdf#'
+                    },
+                    xpath: '/RDF/Description/em:version',
+                    value: '1.2.4'
+                }
             }
         },
 
