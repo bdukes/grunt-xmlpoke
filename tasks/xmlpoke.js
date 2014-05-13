@@ -47,7 +47,8 @@ module.exports = function (grunt) {
                 var queries = typeof replacement.xpath === 'string' ? [replacement.xpath] : replacement.xpath,
                     getValue = _.isFunction(replacement.value) ? replacement.value : function () { return replacement.value || ''; };
                 queries.forEach(function (query) {
-                    var nodes = xpath.select(query, doc);
+                    var select = options.namespaces ? xpath.useNamespaces(options.namespaces) : xpath.select;
+                    var nodes = select(query, doc);
                     nodes.forEach(function (node) {
                         var value = getValue(node);
                         grunt.verbose.writeln('setting value of "' + query + '" to "' + value + '"');
