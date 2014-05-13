@@ -2,7 +2,7 @@
  * grunt-xmlpoke
  * https://github.com/bdukes/grunt-xmlpoke
  *
- * Copyright (c) 2013 Brian Dukes
+ * Copyright (c) 2014 Brian Dukes
  * Licensed under the MIT license.
  */
 
