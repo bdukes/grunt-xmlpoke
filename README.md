@@ -25,12 +25,14 @@ In your project's Gruntfile, add a section named `xmlpoke` to the data object pa
 ```js
 grunt.initConfig({
   xmlpoke: {
-    options: {
-      xpath: '//title',
-      value: 'The Good Parts'
-    },
-    files: {
-      'dest.xml': 'src.xml'
+    updateTitle: {
+      options: {
+        xpath: '//title',
+        value: 'The Good Parts'
+      },
+      files: {
+        'dest.xml': 'src.xml'
+      },
     },
   },
 })
@@ -67,13 +69,15 @@ In this example, the text content of an element is set to a static value. So if 
 
 ```js
 grunt.initConfig({
-  xmlpoke: {
-    options: {
-      xpath: '/abc',
-      value: '123'
-    },
-    files: {
-      'dest/basic_usage.xml': 'src/testing.xml',
+  setTheNumber: {
+    xmlpoke: {
+      options: {
+        xpath: '/abc',
+        value: '123'
+      },
+      files: {
+        'dest/basic_usage.xml': 'src/testing.xml',
+      },
     },
   },
 })
@@ -85,12 +89,14 @@ In this example, the value of an attribute is cleared. So if the `testing.xml` f
 ```js
 grunt.initConfig({
   xmlpoke: {
-    options: {
-      xpath: '/x/@y',
-      value: ''
-    },
-    files: {
-      'dest/attribute_example.xml': 'src/testing.xml',
+    updateAnAttribute: {
+      options: {
+        xpath: '/x/@y',
+        value: ''
+      },
+      files: {
+        'dest/attribute_example.xml': 'src/testing.xml',
+      },
     },
   },
 })
@@ -102,12 +108,14 @@ In this example, the value of an attribute is modified. So if the `testing.xml` 
 ```js
 grunt.initConfig({
   xmlpoke: {
-    options: {
-      xpath: '/x/@y',
-      value: function (node) { return node.value.toUpperCase(); }
-    },
-    files: {
-      'dest/function_example.xml': 'src/testing.xml',
+    upperCaseTheY: {
+      options: {
+        xpath: '/x/@y',
+        value: function (node) { return node.value.toUpperCase(); }
+      },
+      files: {
+        'dest/function_example.xml': 'src/testing.xml',
+      },
     },
   },
 })
@@ -119,12 +127,14 @@ In this example, the same value is put intp multiple locations. So if the `testi
 ```js
 grunt.initConfig({
   xmlpoke: {
-    options: {
-      xpath: ['/x/@y','/x'],
-      value: '111'
-    },
-    files: {
-      'dest/multiple_xpath_queries.xml': 'src/testing.xml',
+    updateAllTheThings: {
+      options: {
+        xpath: ['/x/@y','/x'],
+        value: '111'
+      },
+      files: {
+        'dest/multiple_xpath_queries.xml': 'src/testing.xml',
+      },
     },
   },
 })
@@ -136,17 +146,19 @@ In this example, multiple replacements take place at once. So if the `testing.xm
 ```js
 grunt.initConfig({
   xmlpoke: {
-    options: {
-      replacements: [{
-        xpath: '/x/@y',
-        value: '111'
-      }, {
-        xpath: '/x',
-        value: 'M'
-      }]
-    },
-    files: {
-      'dest/multiple_replacements.xml': 'src/testing.xml',
+    updateACoupleOfThings: {
+      options: {
+        replacements: [{
+          xpath: '/x/@y',
+          value: '111'
+        }, {
+          xpath: '/x',
+          value: 'M'
+        }]
+      },
+      files: {
+        'dest/multiple_replacements.xml': 'src/testing.xml',
+      },
     },
   },
 })
