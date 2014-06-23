@@ -39,10 +39,29 @@ module.exports = function (grunt) {
                     'tmp/testing_attribute.xml': 'test/fixtures/testing.xml'
                 }
             },
-            testing_element: {
+            testing_element_text: {
                 options: {
                     xpath: '/data',
                     value: 'UPDATED information'
+                },
+                files: {
+                    'tmp/testing_element_text.xml': 'test/fixtures/testing.xml'
+                }
+            },
+            testing_element_encoded_text: {
+                options: {
+                    xpath: '/data',
+                    value: '<child>UPDATED information</child>'
+                },
+                files: {
+                    'tmp/testing_element_encoded_text.xml': 'test/fixtures/testing.xml'
+                }
+            },
+            testing_element: {
+                options: {
+                    xpath: '/data',
+                    value: '<child>UPDATED information</child>',
+                    valueType: 'element'
                 },
                 files: {
                     'tmp/testing_element.xml': 'test/fixtures/testing.xml'
