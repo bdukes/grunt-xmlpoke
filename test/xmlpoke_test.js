@@ -108,6 +108,15 @@ exports.xmlpoke = {
 
         test.done();
     },
+    value_as_raw_xml : function(test){
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/value_as_raw_xml.xml'),
+            expected = grunt.file.read('test/expected/value_as_raw_xml.xml');
+        test.equal(actual, expected, 'should add xml child element values.');
+
+        test.done();
+    },
     namespaces : function(test){
         test.expect(1);
 
