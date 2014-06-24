@@ -56,6 +56,14 @@ You can also supply a function that returns the replacement value.  The first
 argument supplied to the function will be the node on which the replacement is 
 being made.
 
+#### options.valueType
+Type: `String`
+Default value: `'text'`
+
+The text content of the node(s) will be set using **options.value**.
+
+Setting to `'element'` will replace the value of the node(s) with raw xml element(s) as defined in **options.value**.
+
 #### options.replacements
 Type: `Array`
 Default value: `undefined`

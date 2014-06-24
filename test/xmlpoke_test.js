@@ -36,12 +36,30 @@ exports.xmlpoke = {
 
         test.done();
     },
+    testing_element_text: function (test) {
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/testing_element_text.xml'),
+            expected = grunt.file.read('test/expected/testing_element_text.xml');
+        test.equal(actual, expected, 'should change element text.');
+
+        test.done();
+    },
+    testing_element_encoded_text: function (test) {
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/testing_element_encoded_text.xml'),
+            expected = grunt.file.read('test/expected/testing_element_encoded_text.xml');
+        test.equal(actual, expected, 'should change element text with encoded XML.');
+
+        test.done();
+    },
     testing_element: function (test) {
         test.expect(1);
 
         var actual = grunt.file.read('tmp/testing_element.xml'),
             expected = grunt.file.read('test/expected/testing_element.xml');
-        test.equal(actual, expected, 'should change element value.');
+        test.equal(actual, expected, 'should replace element text with new XML nodes.');
 
         test.done();
     },
@@ -105,6 +123,15 @@ exports.xmlpoke = {
         var actual = grunt.file.read('tmp/value_as_function_with_callback.xml'),
             expected = grunt.file.read('test/expected/value_as_function_with_callback.xml');
         test.equal(actual, expected, 'should use a function return value.');
+
+        test.done();
+    },
+    value_as_raw_xml : function(test){
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/value_as_raw_xml.xml'),
+            expected = grunt.file.read('test/expected/value_as_raw_xml.xml');
+        test.equal(actual, expected, 'should add xml child element values.');
 
         test.done();
     },

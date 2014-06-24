@@ -45,14 +45,22 @@ module.exports = function (grunt) {
             
             replacements.forEach(function (replacement) {
                 var queries = typeof replacement.xpath === 'string' ? [replacement.xpath] : replacement.xpath,
-                    getValue = _.isFunction(replacement.value) ? replacement.value : function () { return replacement.value || ''; };
+                    getValue = _.isFunction(replacement.value) ? replacement.value : function () { return replacement.value || ''; },
+                    valueType = typeof replacement.valueType === 'string' ? replacement.valueType : 'text';
                 queries.forEach(function (query) {
                     var select = options.namespaces ? xpath.useNamespaces(options.namespaces) : xpath.select;
                     var nodes = select(query, doc);
                     nodes.forEach(function (node) {
                         var value = getValue(node);
                         grunt.verbose.writeln('setting value of "' + query + '" to "' + value + '"');
-                        if (node.nodeType === ATTRIBUTE_NODE) {
+                        if (valueType === 'element') {
+                            node.textContent = '';
+                            while (node.firstChild) {
+                                node.removeChild(node.firstChild);
+                            }
+                            node.appendChild(domParser.parseFromString(value));
+                        }
+                        else if (node.nodeType === ATTRIBUTE_NODE) {
                             node.value = value;
                         } else {
                             node.textContent = value;

@@ -39,10 +39,29 @@ module.exports = function (grunt) {
                     'tmp/testing_attribute.xml': 'test/fixtures/testing.xml'
                 }
             },
-            testing_element: {
+            testing_element_text: {
                 options: {
                     xpath: '/data',
                     value: 'UPDATED information'
+                },
+                files: {
+                    'tmp/testing_element_text.xml': 'test/fixtures/testing.xml'
+                }
+            },
+            testing_element_encoded_text: {
+                options: {
+                    xpath: '/data',
+                    value: '<child>UPDATED information</child>'
+                },
+                files: {
+                    'tmp/testing_element_encoded_text.xml': 'test/fixtures/testing.xml'
+                }
+            },
+            testing_element: {
+                options: {
+                    xpath: '/data',
+                    value: '<child>UPDATED information</child>',
+                    valueType: 'element'
                 },
                 files: {
                     'tmp/testing_element.xml': 'test/fixtures/testing.xml'
@@ -117,6 +136,16 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'tmp/value_as_function_with_callback.xml': 'test/fixtures/testing.xml'
+                }
+            },
+            value_as_raw_xml: {
+                options: {
+                    xpath: '//Description',
+                    valueType: 'element',
+                    value: '\r\n<Number>1</Number><Number>2</Number><Number>3</Number>'
+                },
+                files: {
+                    'tmp/value_as_raw_xml.xml': 'test/fixtures/namespaces.xml'
                 }
             },
             namespaces: {
