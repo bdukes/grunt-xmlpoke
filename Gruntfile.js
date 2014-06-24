@@ -138,6 +138,16 @@ module.exports = function (grunt) {
                     'tmp/value_as_function_with_callback.xml': 'test/fixtures/testing.xml'
                 }
             },
+            value_as_raw_xml: {
+                options: {
+                    xpath: '//Description',
+                    valueType: 'element',
+                    value: '\r\n<Number>1</Number><Number>2</Number><Number>3</Number>'
+                },
+                files: {
+                    'tmp/value_as_raw_xml.xml': 'test/fixtures/namespaces.xml'
+                }
+            },
             namespaces: {
                 dest: 'tmp/namespaces.xml',
                 src: 'test/fixtures/namespaces.xml',

@@ -53,7 +53,14 @@ module.exports = function (grunt) {
                     nodes.forEach(function (node) {
                         var value = getValue(node);
                         grunt.verbose.writeln('setting value of "' + query + '" to "' + value + '"');
-                        if (node.nodeType === ATTRIBUTE_NODE || valueType === 'element') {
+                        if (valueType === 'element') {
+                            node.textContent = '';
+                            while (node.firstChild) {
+                                node.removeChild(node.firstChild);
+                            }
+                            node.appendChild(domParser.parseFromString(value));
+                        }
+                        else if (node.nodeType === ATTRIBUTE_NODE) {
                             node.value = value;
                         } else {
                             node.textContent = value;
