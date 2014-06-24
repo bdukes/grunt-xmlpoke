@@ -179,5 +179,6 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
  - 0.1.0 &mdash; Initial release
  - 0.2.0 &mdash; Multiple replacements at once
  - 0.2.1 &mdash; Color filename when logged
- - 0.3.0 &mdash; Allow specifying replacement value as a function
- - 0.4.0 &mdash; Allow specifying namespaces
+ - 0.3.0 &mdash; Allow specifying replacement value as a function (Thanks @dimasty!)
+ - 0.4.0 &mdash; Allow specifying namespaces (Thanks @j1mmie!)
+ - 0.5.0 &mdash; Allow replacing with XML elements, not just text (Thanks @kraihn!)

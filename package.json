@@ -1,7 +1,7 @@
 {
   "name": "grunt-xmlpoke",
   "description": "Updates values in XML files based on XPath queries",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "homepage": "https://github.com/bdukes/grunt-xmlpoke",
   "author": {
     "name": "Brian Dukes",
