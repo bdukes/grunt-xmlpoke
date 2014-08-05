@@ -46,18 +46,7 @@ module.exports = function (grunt) {
             replacements.forEach(function (replacement) {
                 var queries = typeof replacement.xpath === 'string' ? [replacement.xpath] : replacement.xpath,
                     getValue = _.isFunction(replacement.value) ? replacement.value : function () { return replacement.value || ''; },
-                    valueType = '';
-
-                // Support more than just two types of replacements, such as removing nodes.
-                if (replacement.valueType === 'undefined' || replacement.valueType === null) {
-                    valueType = 'remove';
-                }
-                else if (typeof replacement.valueType === 'string') {
-                    valueType = replacement.valueType;
-                } else {
-                    valueType = 'text';
-                }
-
+                    valueType = typeof replacement.valueType === 'string' ? replacement.valueType : 'text';
                 queries.forEach(function (query) {
                     var select = options.namespaces ? xpath.useNamespaces(options.namespaces) : xpath.select;
                     var nodes = select(query, doc);
