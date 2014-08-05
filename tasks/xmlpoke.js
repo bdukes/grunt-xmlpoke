@@ -46,7 +46,18 @@ module.exports = function (grunt) {
             replacements.forEach(function (replacement) {
                 var queries = typeof replacement.xpath === 'string' ? [replacement.xpath] : replacement.xpath,
                     getValue = _.isFunction(replacement.value) ? replacement.value : function () { return replacement.value || ''; },
-                    valueType = typeof replacement.valueType === 'string' ? replacement.valueType : 'text';
+                    valueType = '';
+
+                // Support more than just two types of replacements, such as removing nodes.
+                if (typeof replacement.valueType === 'string') {
+                    valueType = replacement.valueType;
+                }
+                else if (replacement.valueType === 'undefined' || replacement.valueType === null) {
+                    valueType = 'remove';
+                } else {
+                    valueType = 'text';
+                }
+
                 queries.forEach(function (query) {
                     var select = options.namespaces ? xpath.useNamespaces(options.namespaces) : xpath.select;
                     var nodes = select(query, doc);
@@ -59,6 +70,10 @@ module.exports = function (grunt) {
                                 node.removeChild(node.firstChild);
                             }
                             node.appendChild(domParser.parseFromString(value));
+                        }
+                        else if (valueType === 'remove') {
+                            var parentNode = node.parentNode;
+                            parentNode.removeChild(node);
                         }
                         else if (node.nodeType === ATTRIBUTE_NODE) {
                             node.value = value;

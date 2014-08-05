@@ -63,6 +63,15 @@ exports.xmlpoke = {
 
         test.done();
     },
+    testing_element_without : function(test){
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/element_without.xml'),
+            expected = grunt.file.read('test/expected/testing_element_without.xml');
+        test.equal(actual, expected, 'should remove xml element');
+
+        test.done();
+    },
     numbers_elements: function (test) {
         test.expect(1);
 
