@@ -49,11 +49,11 @@ module.exports = function (grunt) {
                     valueType = '';
 
                 // Support more than just two types of replacements, such as removing nodes.
-                if (typeof replacement.valueType === 'string') {
-                    valueType = replacement.valueType;
-                }
-                else if (replacement.valueType === 'undefined' || replacement.valueType === null) {
+                if (replacement.valueType === 'undefined' || replacement.valueType === null) {
                     valueType = 'remove';
+                }
+                else if (typeof replacement.valueType === 'string') {
+                    valueType = replacement.valueType;
                 } else {
                     valueType = 'text';
                 }
