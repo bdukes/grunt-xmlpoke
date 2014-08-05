@@ -63,6 +63,7 @@ Default value: `'text'`
 The text content of the node(s) will be set using **options.value**.
 
 Setting to `'element'` will replace the value of the node(s) with raw xml element(s) as defined in **options.value**.
+Setting to `'remove'` will remove the node(s) from the xml (**options.value** is ignored).
 
 #### options.replacements
 Type: `Array`

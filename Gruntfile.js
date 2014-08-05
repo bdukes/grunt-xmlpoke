@@ -67,6 +67,15 @@ module.exports = function (grunt) {
                     'tmp/testing_element.xml': 'test/fixtures/testing.xml'
                 }
             },
+            testing_element_without: {
+                options: {
+                    xpath: '/data/without',
+                    valueType: 'remove',
+                },
+                files: {
+                    'tmp/element_without.xml': 'test/fixtures/children.xml'
+                }
+            },
             numbers_elements: {
                 options: {
                     xpath: '//Number',

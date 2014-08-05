@@ -60,6 +60,10 @@ module.exports = function (grunt) {
                             }
                             node.appendChild(domParser.parseFromString(value));
                         }
+                        else if (valueType === 'remove') {
+                            var parentNode = node.parentNode;
+                            parentNode.removeChild(node);
+                        }
                         else if (node.nodeType === ATTRIBUTE_NODE) {
                             node.value = value;
                         } else {
