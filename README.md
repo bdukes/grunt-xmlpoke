@@ -183,3 +183,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
  - 0.3.0 &mdash; Allow specifying replacement value as a function (Thanks [@dimasty](https://github.com/dimasty)!)
  - 0.4.0 &mdash; Allow specifying namespaces (Thanks [@j1mmie](https://github.com/j1mmie)!)
  - 0.5.0 &mdash; Allow replacing with XML elements, not just text (Thanks [@kraihn](https://github.com/kraihn)!)
+ - 0.6.0 &mdash; Allow removing XML elements (Thanks [@mradcliffe](https://github.com/mradcliffe)!)
+
