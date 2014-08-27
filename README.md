@@ -56,6 +56,13 @@ You can also supply a function that returns the replacement value.  The first
 argument supplied to the function will be the node on which the replacement is 
 being made.
 
+#### options.namespaces
+Type: `object`
+Default value: `{}`
+
+An object mapping between XML namespace prefixes and names (URIs).  
+For example, `{ 'em': 'http://example.org/XML/em' }`
+
 #### options.valueType
 Type: `String`
 Default value: `'text'`
