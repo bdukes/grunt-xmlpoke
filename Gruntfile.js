@@ -67,6 +67,22 @@ module.exports = function (grunt) {
                     'tmp/testing_element.xml': 'test/fixtures/testing.xml'
                 }
             },
+            testing_element_append: {
+                options: {
+                    replacements: [{
+                        xpath: '/data',
+                        value: '<child>UPDATED information</child>',
+                        valueType: 'element'
+                    }, {
+                        xpath: '/data',
+                        value: '<child>UPDATED information appended</child>',
+                        valueType: 'append'
+                    }]
+                },
+                files: {
+                    'tmp/testing_element_append.xml': 'test/fixtures/testing.xml'
+                }
+            },
             testing_element_without: {
                 options: {
                     xpath: '/data/without',

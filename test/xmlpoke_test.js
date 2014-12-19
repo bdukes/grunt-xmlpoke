@@ -63,6 +63,15 @@ exports.xmlpoke = {
 
         test.done();
     },
+    testing_element_append: function (test) {
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/testing_element_append.xml'),
+            expected = grunt.file.read('test/expected/testing_element_append.xml');
+        test.equal(actual, expected, 'should append new XML node without affected existing child nodes.');
+
+        test.done();
+    },
     testing_element_without : function(test){
         test.expect(1);
 
