@@ -70,6 +70,7 @@ Default value: `'text'`
 The text content of the node(s) will be set using **options.value**.
 
 Setting to `'element'` will replace the value of the node(s) with raw xml element(s) as defined in **options.value**.
+Setting to `'append'` will append the raw xml element(s) as defined in **options.value** to the end of the selected node(s).
 Setting to `'remove'` will remove the node(s) from the xml (**options.value** is ignored).
 
 #### options.replacements
@@ -112,6 +113,46 @@ grunt.initConfig({
       },
       files: {
         'dest/attribute_example.xml': 'src/testing.xml',
+      },
+    },
+  },
+})
+```
+
+#### Element Example
+In this example, an element is set as the child of an other element. So if the `testing.xml` file has the content `<x><y /></x>`, the generated result in this case would be `<x><z /></x>`.
+
+```js
+grunt.initConfig({
+  xmlpoke: {
+    updateAnAttribute: {
+      options: {
+        xpath: '/x',
+        value: '<z />',
+        valueType: 'element'
+      },
+      files: {
+        'dest/element_example.xml': 'src/testing.xml',
+      },
+    },
+  },
+})
+```
+
+#### Append Example
+In this example, an element is added to another element. So if the `testing.xml` file has the content `<x><y /></x>`, the generated result in this case would be `<x><y /><z /></x>`.
+
+```js
+grunt.initConfig({
+  xmlpoke: {
+    updateAnAttribute: {
+      options: {
+        xpath: '/x',
+        value: '<z />',
+        valueType: 'append'
+      },
+      files: {
+        'dest/append_example.xml': 'src/testing.xml',
       },
     },
   },
