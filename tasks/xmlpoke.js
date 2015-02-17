@@ -41,15 +41,21 @@ module.exports = function (grunt) {
                 domParser = new xmldom.DOMParser(),
                 doc = domParser.parseFromString(src),
                 xmlSerializer = new xmldom.XMLSerializer(),
-                replacements = options.replacements || [options];
+                replacements = options.replacements || [options],
+                failIfMissingOption = options.failIfMissing;
             
             replacements.forEach(function (replacement) {
                 var queries = typeof replacement.xpath === 'string' ? [replacement.xpath] : replacement.xpath,
                     getValue = _.isFunction(replacement.value) ? replacement.value : function () { return replacement.value || ''; },
-                    valueType = typeof replacement.valueType === 'string' ? replacement.valueType : 'text';
+                    valueType = typeof replacement.valueType === 'string' ? replacement.valueType : 'text',
+                    failIfMissing = replacement.failIfMissing || (failIfMissingOption && replacement.failIfMissing !== false);
                 queries.forEach(function (query) {
                     var select = options.namespaces ? xpath.useNamespaces(options.namespaces) : xpath.select;
                     var nodes = select(query, doc);
+                    if (failIfMissing && nodes.length === 0) {
+                        grunt.fail.warn('No node matched the XPath expression ' + query.cyan);
+                    }
+                    
                     nodes.forEach(function (node) {
                         var value = getValue(node);
                         grunt.verbose.writeln('setting value of "' + query + '" to "' + value + '"');

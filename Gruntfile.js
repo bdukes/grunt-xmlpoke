@@ -30,6 +30,9 @@ module.exports = function (grunt) {
 
         // Configuration to be run (and then tested).
         xmlpoke: {
+            options : {
+                failIfMissing: true
+            },
             testing_attribute: {
                 options: {
                     xpath: '/data/@test-value',
@@ -104,7 +107,8 @@ module.exports = function (grunt) {
             numbers_no_match: {
                 options: {
                     xpath: '//Numbering',
-                    value: '999'
+                    value: '999',
+                    failIfMissing: false
                 },
                 files: {
                     'tmp/numbers_no_match.xml': 'test/fixtures/numbers.xml'
