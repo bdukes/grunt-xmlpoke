@@ -221,6 +221,36 @@ grunt.initConfig({
 })
 ```
 
+#### Fail On Missing XPath
+By default, if the providex XPath expression doesn't match any nodes, the task will silently continue.
+You can override this behavior by specifying `failIfMissing` in the `options` (either at the top level of the task, or in a sub-task),
+or within a single replacement.
+
+```js
+grunt.initConfig({
+  xmlpoke: {
+    options: {
+      failIfMissing: true
+    },
+    updateACoupleOfThings: {
+      options: {
+        replacements: [{
+          xpath: '/x/@y',
+          value: '111',
+          failIfMissing: false
+        }, {
+          xpath: '/x',
+          value: 'M'
+        }]
+      },
+      files: {
+        'dest/element_required_attribute_optional.xml': 'src/testing.xml',
+      },
+    },
+  },
+})
+```
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
@@ -233,4 +263,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
  - 0.5.0 &mdash; Allow replacing with XML elements, not just text (Thanks [@kraihn](https://github.com/kraihn)!)
  - 0.6.0 &mdash; Allow removing XML elements (Thanks [@mradcliffe](https://github.com/mradcliffe)!)
  - 0.7.0 &mdash; Allow appending XML elements (Thanks [@njtman](https://github.com/njtman)!)
+ - 0.8.0 &mdash; Add option to fail if XPath expression doesn't match any nodes (Thanks [@omatrycy](https://github.com/omatrycy)!)
 
