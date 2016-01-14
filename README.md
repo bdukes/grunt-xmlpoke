@@ -264,4 +264,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
  - 0.6.0 &mdash; Allow removing XML elements (Thanks [@mradcliffe](https://github.com/mradcliffe)!)
  - 0.7.0 &mdash; Allow appending XML elements (Thanks [@njtman](https://github.com/njtman)!)
  - 0.8.0 &mdash; Add option to fail if XPath expression doesn't match any nodes (Thanks [@omatrycy](https://github.com/omatrycy)!)
+ - 0.8.1 &mdash; Fix broken dependency (Thanks [@hbogs](https://github.com/hbogs)!)
 
