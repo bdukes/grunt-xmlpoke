@@ -25,9 +25,9 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-jshint": "~0.11.3",
+    "grunt-contrib-clean": "~0.7.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
     "grunt": "~0.4.2"
   },
   "peerDependencies": {
@@ -38,8 +38,8 @@
     "xml"
   ],
   "dependencies": {
-    "xpath": "0.0.6",
+    "xpath": "0.0.9",
     "xmldom": "~0.1.16",
-    "lodash": "2.4.1"
+    "lodash": "4.0.0"
   }
 }
