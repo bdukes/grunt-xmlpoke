@@ -20,10 +20,11 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "~0.12.0",
+    "grunt": "~0.4.2",
+    "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "~0.7.0",
-    "grunt-contrib-nodeunit": "~0.4.1",
-    "grunt": "~0.4.2"
+    "grunt-contrib-jshint": "~0.12.0",
+    "grunt-contrib-nodeunit": "~0.4.1"
   },
   "peerDependencies": {
     "grunt": "~0.4.2"
