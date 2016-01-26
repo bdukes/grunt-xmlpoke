@@ -40,6 +40,6 @@
   "dependencies": {
     "xpath": "~0.0.9",
     "xmldom": ">0.1.20",
-    "lodash": "~4.0.0"
+    "lodash": "~4.0.1"
   }
 }
