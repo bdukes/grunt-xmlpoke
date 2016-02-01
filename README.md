@@ -2,7 +2,7 @@
 
 > Updates values in XML files based on XPath queries.  Similar to the `xmlpoke` task in NAnt.
 
-[![Build Status](https://travis-ci.org/bdukes/grunt-xmlpoke.svg?branch=master)](https://travis-ci.org/bdukes/grunt-xmlpoke)
+[![npm version](https://badge.fury.io/js/grunt-xmlpoke.svg)](https://badge.fury.io/js/grunt-xmlpoke) [![Build Status](https://travis-ci.org/bdukes/grunt-xmlpoke.svg?branch=master)](https://travis-ci.org/bdukes/grunt-xmlpoke)
 
 ## Getting Started
 This plugin requires Grunt `~0.4.2`
