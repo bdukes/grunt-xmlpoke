@@ -5,7 +5,7 @@
 [![npm version](https://badge.fury.io/js/grunt-xmlpoke.svg)](https://badge.fury.io/js/grunt-xmlpoke) [![Build Status](https://travis-ci.org/bdukes/grunt-xmlpoke.svg?branch=master)](https://travis-ci.org/bdukes/grunt-xmlpoke)
 
 ## Getting Started
-This plugin requires Grunt `~0.4.2`
+This plugin requires Grunt `>=0.4.2`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -55,14 +55,14 @@ Default value: `''`
 A string value to which the value of any matched node is set.
 
 You can also supply a function that returns the replacement value.  The first
-argument supplied to the function will be the node on which the replacement is 
+argument supplied to the function will be the node on which the replacement is
 being made.
 
 #### options.namespaces
 Type: `object`
 Default value: `{}`
 
-An object mapping between XML namespace prefixes and names (URIs).  
+An object mapping between XML namespace prefixes and names (URIs).
 For example, `{ 'em': 'http://example.org/XML/em' }`
 
 #### options.valueType
@@ -267,4 +267,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
  - 0.7.0 &mdash; Allow appending XML elements (Thanks [@njtman](https://github.com/njtman)!)
  - 0.8.0 &mdash; Add option to fail if XPath expression doesn't match any nodes (Thanks [@omatrycy](https://github.com/omatrycy)!)
  - 0.8.1 &mdash; Fix broken dependency (Thanks [@hbogs](https://github.com/hbogs)!)
+ - 0.8.2 &mdash; Update dependencies (Thanks [@greenkeeperio](https://github.com/greenkeeperio)!)
 
