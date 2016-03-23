@@ -192,6 +192,29 @@ module.exports = function (grunt) {
                     value: '1.2.4'
                 }
             },
+            default_namespace_attribute: {
+                dest: 'tmp/config.xml',
+                src: 'test/fixtures/config.xml',
+                options: {
+                    namespaces: {
+                        'w': 'http://www.w3.org/ns/widgets',
+                        'cdv': 'http://cordova.apache.org/ns/1.0'
+                    },
+                    replacements: [{
+                        xpath: '/w:widget/@version',
+                        value: '0.2.1'
+                    },{
+                        xpath: '/w:widget/w:author',
+                        value: 'Someone Else'
+                    },{
+                        xpath: '/w:widget/w:author/@email',
+                        value: 'someone.else@example.com'
+                    },{
+                        xpath: '/w:widget/cdv:custom-cordova-thing',
+                        value: 'new value'
+                    }]
+                }
+            },
             declaration: {
                 dest: 'tmp/declaration.xml',
                 src: 'test/fixtures/declaration.xml',

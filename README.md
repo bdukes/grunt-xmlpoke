@@ -223,6 +223,74 @@ grunt.initConfig({
 })
 ```
 
+#### XML Namespace Example
+In this example, the XML file contains namespaces (i.e. `xmlns` attributes). For example, an Apache Cordova `config.xml` file might look like this:
+
+```xml
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.cordova.hellocordova" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>HelloCordova</name>
+    <description>A sample Apache Cordova application that responds to the deviceready event.</description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">Apache Cordova Team</author>
+    <content src="index.html" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <cdv:custom-cordova-thing>old value</cdv:custom-cordova-thing>
+</widget>
+```
+
+The `xmlns:cdv` attribute defines the namespace for the `cdv` prefix, but the `xmlns` attribute without a suffix defines
+the _default_ namespace for that element and its descendants.  Therefore, when targeting the `<widget>` element, your
+XPath expression will need to reference that namespace.  Note, however, that the namespace does not affect attributes,
+only elements.  In the example we define the unused `cdv` prefix for completeness, but it's not used in the XPath
+expression, so it's not required to be defined.  Also, while it's simplest to keep the prefixes the same, it's not
+required for the prefix used in your XPath expression to match the prefix defined in the document (e.g. your XML may
+have an `xmlns:cdv` attribute, and your Grunt config could reference that same namespace URL with the prefix `'c'`).
+
+```js
+grunt.initConfig({
+  xmlpoke: {
+    widget: {
+      options: {
+        namespaces: {
+          'w': 'http://www.w3.org/ns/widgets',
+          'cdv': 'http://cordova.apache.org/ns/1.0'
+        },
+        replacements: [{
+            xpath: '/w:widget/@version',
+            value: '0.2.1'
+        },{
+            xpath: '/w:widget/w:author',
+            value: 'Someone Else'
+        },{
+            xpath: '/w:widget/w:author/@email',
+            value: 'someone.else@example.com'
+        },{
+            xpath: '/w:widget/cdv:custom-cordova-thing',
+            value: 'new value'
+        }]
+      },
+      files: {
+        'dest/config.xml': 'src/config.xml',
+      },
+    },
+  },
+})
+```
+
 #### Fail On Missing XPath
 By default, if the providex XPath expression doesn't match any nodes, the task will silently continue.
 You can override this behavior by specifying `failIfMissing` in the `options` (either at the top level of the task, or in a sub-task),

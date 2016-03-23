@@ -162,6 +162,15 @@ exports.xmlpoke = {
 
         test.done();
     },
+    default_namespace_attribute : function(test){
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/config.xml'),
+            expected = grunt.file.read('test/expected/config.xml');
+        test.equal(actual, expected, 'should support default namespace and attribute targeting in xpath.');
+
+        test.done();
+    },
     declaration : function(test){
         test.expect(1);
 
