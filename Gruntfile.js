@@ -171,7 +171,7 @@ module.exports = function (grunt) {
                 options: {
                     namespaces: {
                         'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
-                    },                    
+                    },
                     xpath: '//rdf:Description',
                     valueType: 'element',
                     value: '\r\n<Number>1</Number><Number>2</Number><Number>3</Number>'
@@ -191,7 +191,15 @@ module.exports = function (grunt) {
                     xpath: '/rdf:RDF/rdf:Description/em:version',
                     value: '1.2.4'
                 }
-            }
+            },
+            declaration: {
+                dest: 'tmp/declaration.xml',
+                src: 'test/fixtures/declaration.xml',
+                options: {
+                    xpath: '/widget/title',
+                    value: 'New Title'
+                }
+            },
         },
 
         // Unit tests.

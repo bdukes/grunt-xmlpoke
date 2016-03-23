@@ -161,5 +161,14 @@ exports.xmlpoke = {
         test.equal(actual, expected, 'should support namespace in xpath.');
 
         test.done();
-    }
+    },
+    declaration : function(test){
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/declaration.xml'),
+            expected = grunt.file.read('test/expected/declaration.xml');
+        test.equal(actual, expected, 'should support declaration in XML document.');
+
+        test.done();
+    },
 };
