@@ -292,7 +292,7 @@ grunt.initConfig({
 ```
 
 #### Fail On Missing XPath
-By default, if the providex XPath expression doesn't match any nodes, the task will silently continue.
+By default, if the provided XPath expression doesn't match any nodes, the task will silently continue.
 You can override this behavior by specifying `failIfMissing` in the `options` (either at the top level of the task, or in a sub-task),
 or within a single replacement.
 
