@@ -34,7 +34,7 @@
     "xml"
   ],
   "dependencies": {
-    "xpath": "~0.0.9",
+    "xpath": "~0.0.21",
     "xmldom": ">0.1.20",
     "lodash": "~4.17.0"
   }
