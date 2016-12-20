@@ -20,6 +20,7 @@
     "test": "grunt test"
   },
   "devDependencies": {
+    "difftool": "^0.1.0",
     "grunt": "~0.4.2",
     "grunt-cli": "^1.0.0",
     "grunt-contrib-clean": "~1.0.0",
@@ -34,8 +35,8 @@
     "xml"
   ],
   "dependencies": {
-    "xpath": "~0.0.9",
+    "lodash": "~4.17.0",
     "xmldom": ">0.1.20",
-    "lodash": "~4.17.0"
+    "xpath": "~0.0.9"
   }
 }
