@@ -25,7 +25,7 @@ module.exports = function (grunt) {
                 grunt.log.warn('Only a single src per dest is supported');
                 return false;
             }
-            
+
             var src = f.src.filter(function (filepath) {
                     // Warn on and remove invalid source files (if nonull was set).
                     if (!grunt.file.exists(filepath)) {
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
                 xmlSerializer = new xmldom.XMLSerializer(),
                 replacements = options.replacements || [options],
                 failIfMissingOption = options.failIfMissing;
-            
+
             replacements.forEach(function (replacement) {
                 var queries = typeof replacement.xpath === 'string' ? [replacement.xpath] : replacement.xpath,
                     getValue = _.isFunction(replacement.value) ? replacement.value : function () { return replacement.value || ''; },
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
                     if (failIfMissing && nodes.length === 0) {
                         grunt.fail.warn('No node matched the XPath expression ' + query.cyan);
                     }
-                    
+
                     nodes.forEach(function (node) {
                         var value = getValue(node);
                         grunt.verbose.writeln('setting value of "' + query + '" to "' + value + '"');
