@@ -15,6 +15,38 @@ module.exports = function (grunt) {
         _ = require('lodash'),
         ATTRIBUTE_NODE = 2;
 
+    function importNode(destinationDoc, node) {
+        var importedNode = destinationDoc.importNode(node);
+        _(node.childNodes).map(function (child) { return importNode(destinationDoc, child); })
+                          .each(function (importedChild) { importedNode.appendChild(importedChild); });
+        return importedNode;
+    }
+
+    function appendXml(node, xml, options) {
+        var destinationDoc = node.ownerDocument;
+
+        var namespaceAttributes = '';
+        if (options.namespaces) {
+            namespaceAttributes =
+                _(options.namespaces)
+                    .toPairs()
+                    .map(function (pair) {
+                        var prefix = pair[0];
+                        var namespace = pair[1];
+                        return ' xmlns:' + prefix + '="' + namespace + '"';
+                    })
+                    .join('');
+        }
+
+        var tempDocXml = '<tempDoc' + namespaceAttributes + '>' + xml + '</tempDoc>';
+        var domParser = new xmldom.DOMParser();
+        var tempDoc = domParser.parseFromString(tempDocXml, 'text/xml');
+
+        _(tempDoc.documentElement.childNodes).each(function (tempNode) {
+            node.appendChild(importNode(destinationDoc, tempNode));
+        });
+    }
+
     grunt.registerMultiTask('xmlpoke', 'Updates values in XML files based on XPath queries', function () {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options();
@@ -39,7 +71,7 @@ module.exports = function (grunt) {
                     return grunt.file.read(filepath);
                 })[0],
                 domParser = new xmldom.DOMParser(),
-                doc = domParser.parseFromString(src),
+                doc = domParser.parseFromString(src, 'text/xml'),
                 xmlSerializer = new xmldom.XMLSerializer(),
                 replacements = options.replacements || [options],
                 failIfMissingOption = options.failIfMissing;
@@ -64,10 +96,11 @@ module.exports = function (grunt) {
                             while (node.firstChild) {
                                 node.removeChild(node.firstChild);
                             }
-                            node.appendChild(domParser.parseFromString(value));
+
+                            appendXml(node, value, options);
                         }
                         else if (valueType === 'append') {
-                            node.appendChild(domParser.parseFromString(value));
+                            appendXml(node, value, options);
                         }
                         else if (valueType === 'remove') {
                             var parentNode = node.parentNode;

@@ -223,6 +223,21 @@ module.exports = function (grunt) {
                     value: 'New Title'
                 }
             },
+            append_to_sap: {
+                dest: 'tmp/append_to_sap.xml',
+                src: 'test/fixtures/sap.xml',
+                options: {
+                    namespaces: {
+                        'm': 'sap.m',
+                        'l': 'sap.ui.layout',
+                        'f': 'sap.ui.layout.form',
+                        'core': 'sap.ui.core',
+                    },
+                    valueType: 'append',
+                    xpath: '//m:Select[@id="mySelect"][core:Item]',
+                    value: '<core:Item key="sov" text="Sovanta Theme"/>',
+                },
+            },
         },
 
         // Unit tests.

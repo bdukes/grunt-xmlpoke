@@ -158,4 +158,11 @@ exports.xmlpoke = {
             'test/expected/declaration.xml',
             'should support declaration in XML document.');
     },
+    append_to_sap : function(test){
+        assertXmlDocumentsAreEqual(
+            test,
+            'tmp/append_to_sap.xml',
+            'test/expected/append_to_sap.xml',
+            'should append without additional xmlns.');
+    },
 };
