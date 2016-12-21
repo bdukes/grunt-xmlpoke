@@ -336,4 +336,6 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
  - 0.8.0 &mdash; Add option to fail if XPath expression doesn't match any nodes (Thanks [@omatrycy](https://github.com/omatrycy)!)
  - 0.8.1 &mdash; Fix broken dependency (Thanks [@hbogs](https://github.com/hbogs)!)
  - 0.8.2 &mdash; Update dependencies (Thanks [@greenkeeperio](https://github.com/greenkeeperio)!)
+ - 0.8.3 &mdash; Update dependencies (Thanks [@greenkeeperio](https://github.com/greenkeeperio)!)
+ - 0.9.0 &mdash; Support appending XML with namespaces (Thanks [@sebbi08](https://github.com/sebbi08)!)
 
