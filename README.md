@@ -338,4 +338,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
  - 0.8.2 &mdash; Update dependencies (Thanks [@greenkeeperio](https://github.com/greenkeeperio)!)
  - 0.8.3 &mdash; Update dependencies (Thanks [@greenkeeperio](https://github.com/greenkeeperio)!)
  - 0.9.0 &mdash; Support appending XML with namespaces (Thanks [@sebbi08](https://github.com/sebbi08)!)
-
+ - 0.10.0 &mdash; Better error messages (Thanks [@sebbi08](https://github.com/sebbi08)!)
