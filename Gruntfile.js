@@ -33,6 +33,24 @@ module.exports = function (grunt) {
             options : {
                 failIfMissing: true
             },
+            missing_src: {
+                options: {
+                    xpath: '/x',
+                    value: 'y'
+                },
+                files: {
+                    'tmp/missing.xml': 'test/fixtures/missing.xml'
+                }
+            },
+            /*invalid_src: {
+                options: {
+                    xpath: '/x',
+                    value: 'y'
+                },
+                files: {
+                    'tmp/invalid.xml': 'test/fixtures/invalid.xml'
+                }
+            },*/
             testing_attribute: {
                 options: {
                     xpath: '/data/@test-value',

@@ -56,25 +56,38 @@ module.exports = function (grunt) {
             if (f.src.length > 1) {
                 grunt.log.warn('Only a single src per dest is supported');
                 return false;
+            } else if (f.src.length === 0) {
+                grunt.log.warn('No src found for ' + f.dest);
+                return false;
             }
 
-            var src = f.src.filter(function (filepath) {
-                    // Warn on and remove invalid source files (if nonull was set).
-                    if (!grunt.file.exists(filepath)) {
-                        grunt.log.warn('Source file "' + filepath + '" not found.');
-                        return false;
-                    } else {
-                        return true;
-                    }
-                }).map(function (filepath) {
-                    // Read file source.
-                    return grunt.file.read(filepath);
-                })[0],
-                domParser = new xmldom.DOMParser(),
-                doc = domParser.parseFromString(src, 'text/xml'),
-                xmlSerializer = new xmldom.XMLSerializer(),
-                replacements = options.replacements || [options],
-                failIfMissingOption = options.failIfMissing;
+            var filepath = f.src[0];
+            if (!grunt.file.exists(filepath)) {
+                grunt.log.warn('Source file "' + filepath + '" not found.');
+                return false;
+            }
+
+            var src = grunt.file.read(filepath);
+            var domParser = new xmldom.DOMParser({
+                errorHandler: {
+                    warning: function handleWarning(message) {
+                        grunt.log.error('Warning while parsing XML document: ');
+                        grunt.log.error(message);
+                    },
+                    error: function handleError(message) {
+                        grunt.log.error('Error while parsing XML document: ');
+                        grunt.fail.warn(message);
+                    },
+                    fatalError: function handleFatalError(message) {
+                        grunt.log.error('Fatal error while parsing XML document: ');
+                        grunt.fail.fatal(message);
+                    },
+                },
+            });
+            var doc = domParser.parseFromString(src, 'text/xml');
+            var xmlSerializer = new xmldom.XMLSerializer();
+            var replacements = options.replacements || [options];
+            var failIfMissingOption = options.failIfMissing;
 
             replacements.forEach(function (replacement) {
                 var queries = typeof replacement.xpath === 'string' ? [replacement.xpath] : replacement.xpath,
