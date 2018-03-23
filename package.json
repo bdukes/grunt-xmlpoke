@@ -1,7 +1,7 @@
 {
   "name": "grunt-xmlpoke",
   "description": "Updates values in XML files based on XPath queries",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "homepage": "https://github.com/bdukes/grunt-xmlpoke",
   "author": {
     "name": "Brian Dukes",
@@ -15,12 +15,17 @@
     "url": "https://github.com/bdukes/grunt-xmlpoke/issues"
   },
   "license": "MIT",
-  "keywords": ["gruntplugin", "xml"],
+  "keywords": [
+    "gruntplugin",
+    "xml"
+  ],
   "main": "Gruntfile.js",
   "scripts": {
     "test": "grunt test"
   },
-  "files": ["tasks"],
+  "files": [
+    "tasks"
+  ],
   "devDependencies": {
     "difftool": "^0.1.0",
     "grunt": "~1.0.0",
