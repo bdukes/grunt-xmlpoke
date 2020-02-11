@@ -10,6 +10,9 @@ node_js:
 cache:
   yarn: true
 
+before_install:
+  - npm install -g greenkeeper-lockfile@1
+
 before_script:
   - greenkeeper-lockfile-update
 
