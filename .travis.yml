@@ -21,6 +21,9 @@ before_install:
 before_script:
   - greenkeeper-lockfile-update
 
+install:
+  - /usr/bin/yarn --frozen-lockfile
+
 after_script:
   - greenkeeper-lockfile-upload
 
