@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "lodash": "~4.17.0",
-    "xmldom": "~0.1.27",
+    "xmldom": "~0.3.0",
     "xpath": "~0.0.21"
   }
 }
