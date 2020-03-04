@@ -1062,12 +1062,12 @@ grunt-contrib-jshint@~1.1.0:
     hooker "^0.2.3"
     jshint "~2.9.4"
 
-grunt-contrib-nodeunit@~2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/grunt-contrib-nodeunit/-/grunt-contrib-nodeunit-2.0.0.tgz#87425ec1924851f25c9c9f94bbb346b199345a29"
-  integrity sha512-pt9N2Aj/6tlIgrepjUvPP4RfN58G7Zo/caL9O/9OskfRaY4qQCAF2n3H+AEUN/tq7nxrIFrAm6U3U+8gnpWDiw==
+grunt-contrib-nodeunit@~2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/grunt-contrib-nodeunit/-/grunt-contrib-nodeunit-2.1.0.tgz#457c71c87fe148900b3f8bd95d3eb6f07dfb0399"
+  integrity sha512-cg3+lf6T5tDmnOFFf4+78b8xa5tsrw9u1NSlfCHjUrjeO+S/Ly0Dpo1BUV3QgsJ4k/0bgMmhbVjNXoP4AyYHuA==
   dependencies:
-    nodeunit-x "^0.12.1"
+    nodeunit-x "^0.13.0"
 
 grunt-known-options@~1.1.0:
   version "1.1.1"
@@ -1838,10 +1838,10 @@ nested-error-stacks@^2.0.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-nodeunit-x@^0.12.1:
-  version "0.12.2"
-  resolved "https://registry.yarnpkg.com/nodeunit-x/-/nodeunit-x-0.12.2.tgz#cb634bcd4c1f7a9935bffd3856cf047776a9d919"
-  integrity sha512-RByTtOEqACCW6w8TQIgQq74xkO8LuOuyWn+wMwg1GY0HBxBnuh/t4OgWT9jZsx/0GMIXQIzvarrH6uvAVbRf9Q==
+nodeunit-x@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/nodeunit-x/-/nodeunit-x-0.13.0.tgz#b5c68e2ff61c05bf0512f54453ec78c193b2fd2a"
+  integrity sha512-64AZrL+3JaiLm76KclMlZu2i0YKU10i8I4mQzERqs8Xf7UgqoQ5CuXPJmx4c+x8duiwategZ+g2DQCNORuGXLA==
   dependencies:
     ejs "^2.5.2"
     tap "^12.6.2"
