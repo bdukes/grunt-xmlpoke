@@ -1,6 +1,6 @@
 # grunt-xmlpoke
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/bdukes/grunt-xmlpoke.svg)](https://greenkeeper.io/)
+
 
 > Updates values in XML files based on XPath queries.  Similar to the `xmlpoke` task in NAnt.
 
