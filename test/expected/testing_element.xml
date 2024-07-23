@@ -1,1 +1,3 @@
-<data test-value="Test"><child>UPDATED information</child></data>
+<data test-value="Test">
+    <child>UPDATED information</child>
+</data>

@@ -1,4 +1,7 @@
-<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="xmlodatamodel.ListBox" xmlns:html="http://www.w3.org/1999/xhtml">
+<core:View xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" controllerName="xmlodatamodel.ListBox"
+    xmlns:html="http://www.w3.org/1999/xhtml">
     <Page title="Title">
         <content>
             <Select id="mySelect" items="{/Categories}" selectedKey="{myModel>/selectedKey}">
