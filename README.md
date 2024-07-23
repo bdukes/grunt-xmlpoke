@@ -371,3 +371,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 - 0.9.0 &mdash; Support appending XML with namespaces (Thanks [@sebbi08](https://github.com/sebbi08)!)
 - 0.10.0 &mdash; Better error messages (Thanks [@sebbi08](https://github.com/sebbi08)!)
 - 1.0.0 &mdash; Bump dependencies
+- 1.0.1 &mdash; Bump dependencies
