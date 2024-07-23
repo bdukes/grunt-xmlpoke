@@ -41,6 +41,5 @@
     "lodash": "~4.17.21",
     "xmldom": "~0.6.0",
     "xpath": "~0.0.34"
-  },
-  "packageManager": "yarn@4.3.1"
+  }
 }
