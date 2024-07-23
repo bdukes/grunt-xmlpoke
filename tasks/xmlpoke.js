@@ -9,7 +9,7 @@
 "use strict";
 
 module.exports = function (grunt) {
-  var xmldom = require("xmldom"),
+  var xmldom = require("@xmldom/xmldom"),
     xpath = require("xpath"),
     _ = require("lodash"),
     ATTRIBUTE_NODE = 2;
