@@ -11,16 +11,13 @@
 module.exports = function (grunt) {
   var xmldom = require("@xmldom/xmldom"),
     xpath = require("xpath"),
-    _ = require("lodash"),
     ATTRIBUTE_NODE = 2;
 
   function importNode(destinationDoc, node) {
     var importedNode = destinationDoc.importNode(node);
-    _(node.childNodes)
-      .map(function (child) {
-        return importNode(destinationDoc, child);
-      })
-      .each(function (importedChild) {
+    Array.from(node.childNodes ?? [])
+      .map((child) => importNode(destinationDoc, child))
+      .forEach((importedChild) => {
         importedNode.appendChild(importedChild);
       });
     return importedNode;
@@ -31,8 +28,7 @@ module.exports = function (grunt) {
 
     var namespaceAttributes = "";
     if (options.namespaces) {
-      namespaceAttributes = _(options.namespaces)
-        .toPairs()
+      namespaceAttributes = Object.entries(options.namespaces)
         .map(function (pair) {
           var prefix = pair[0];
           var namespace = pair[1];
@@ -46,7 +42,7 @@ module.exports = function (grunt) {
     var domParser = new xmldom.DOMParser();
     var tempDoc = domParser.parseFromString(tempDocXml, "text/xml");
 
-    _(tempDoc.documentElement.childNodes).each(function (tempNode) {
+    Array.from(tempDoc.documentElement.childNodes ?? []).forEach((tempNode) => {
       node.appendChild(importNode(destinationDoc, tempNode));
     });
   }
@@ -101,11 +97,9 @@ module.exports = function (grunt) {
               typeof replacement.xpath === "string"
                 ? [replacement.xpath]
                 : replacement.xpath,
-            getValue = _.isFunction(replacement.value)
+            getValue = isFunction(replacement.value)
               ? replacement.value
-              : function () {
-                  return replacement.value || "";
-                },
+              : () => replacement.value || "",
             valueType =
               typeof replacement.valueType === "string"
                 ? replacement.valueType
@@ -159,3 +153,7 @@ module.exports = function (grunt) {
     }
   );
 };
+
+function isFunction(value) {
+  return typeof value === "function";
+}
