@@ -27,7 +27,7 @@
     "tasks"
   ],
   "devDependencies": {
-    "difftool": "^0.1.0",
+    "diff-js-xml": "^1.0.8",
     "grunt": "~1.6.1",
     "grunt-cli": "^1.5.0",
     "grunt-contrib-clean": "~2.0.1",
@@ -38,8 +38,8 @@
     "grunt": ">=0.4.2"
   },
   "dependencies": {
-    "lodash": "~4.17.21",
     "@xmldom/xmldom": "~0.8.10",
+    "lodash": "~4.17.21",
     "xpath": "~0.0.34"
   }
 }

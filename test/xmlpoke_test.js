@@ -1,7 +1,7 @@
 "use strict";
 
 var grunt = require("grunt");
-var difftool = require("difftool");
+var difftool = require("diff-js-xml");
 
 /*
   ======== A Handy Little Nodeunit Reference ========
