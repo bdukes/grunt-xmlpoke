@@ -72,19 +72,22 @@ module.exports = function (grunt) {
 
         var src = grunt.file.read(filepath);
         var domParser = new xmldom.DOMParser({
-          errorHandler: {
-            warning: function handleWarning(message) {
+          onError(level, message, context) {
+            if (level === "warn") {
               grunt.log.error("Warning while parsing XML document: ");
               grunt.log.error(message);
-            },
-            error: function handleError(message) {
+            } else if (level === "error") {
               grunt.log.error("Error while parsing XML document: ");
               grunt.fail.warn(message);
-            },
-            fatalError: function handleFatalError(message) {
+            } else if (level === "fatalError") {
               grunt.log.error("Fatal error while parsing XML document: ");
               grunt.fail.fatal(message);
-            },
+            } else {
+              grunt.log.error(
+                `Unexpected ${level} error while parsing XML document: `
+              );
+              grunt.fail.fatal(message);
+            }
           },
         });
         var doc = domParser.parseFromString(src, "text/xml");
