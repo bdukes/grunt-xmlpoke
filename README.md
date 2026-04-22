@@ -374,3 +374,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 - 1.0.1 &mdash; Bump dependencies
 - 1.0.2 &mdash; Bump dependencies
 - 1.0.3 &mdash; Bump dependencies (see [xmldom 0.9.9 release notes](https://github.com/xmldom/xmldom/releases/tag/0.9.9))
+- 1.0.4 &mdash; Bump dependencies (see [xmldom 0.9.10 release notes](https://github.com/xmldom/xmldom/releases/tag/0.9.10))
